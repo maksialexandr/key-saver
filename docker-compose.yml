@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: deployments/Dockerfile
+    restart: always
+    ports:
+      - *****:*****

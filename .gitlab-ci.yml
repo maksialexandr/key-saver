@@ -1,0 +1,32 @@
+image: docker:latest
+
+stages:
+  - build
+  - deploy
+
+build_release_image:
+  stage: build
+  before_script:
+    - docker login -u gitlab-ci-token -p ***** *****
+  tags:
+    - intercom
+  only:
+    - tags
+  script:
+    - docker build --build-arg ssh_key="${*****}" -f deployments/Dockerfile.prod -t "${*****}:${*****}" .
+    - docker push "${*****}:${*****}"
+
+deploy_release_image:
+  image: *****
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+    CD_REPOSITORY: *****
+  script:
+    - . clone.sh
+    - echo "${*****}:${*****}" > appversions/person-key-saver
+    - push.sh
+  only:
+    - tags
+  tags:
+    - intercom

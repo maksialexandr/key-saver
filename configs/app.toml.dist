@@ -1,0 +1,35 @@
+dailyAutoSync = false
+
+[log]
+level = "debug"
+
+[ws]
+port =
+
+[http]
+port =
+
+[store]
+user = ""
+pwd = ""
+dsn = ""
+port = ""
+database = ""
+
+[rmq]
+user = ""
+pwd = ""
+host = ""
+port = ""
+vhost = ""
+
+[mqtt]
+host = ""
+client = ""
+
+[clickHouse]
+user = ""
+pwd = ""
+dsn = ""
+port = ""
+database = ""
